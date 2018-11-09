@@ -29,24 +29,28 @@
 		.footer-fixed button {
 			margin-top: 7px;
 		}
+
+		.riscado {
+			text-decoration: line-through;
+		}
 	</style>
 </head>
 <body>
 	<div class="row">
-		<div class="col-3"></div>
-		<div class="col-6">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
 			<ul class="list-group" style="margin-top:50px; margin-bottom: 100px;">
 				@foreach ($gifts as $gift)
 					<li class="list-group-item">
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="gift{{ $gift->id }}" name="gift[]" value="{{ $gift->id }}" {{ ($gift->checked) ? 'disabled' : '' }}>
-							<label class="custom-control-label" for="gift{{ $gift->id }}">{{ $gift->name }}</label>
+							<label class="custom-control-label {{ ($gift->checked) ? 'riscado' : ''}}" for="gift{{ $gift->id }}">{{ $gift->name }}</label>
 						</div>
 					</li>
 				@endforeach
 			</ul>
 		</div>
-		<div class="col-3"></div>
+		<div class="col-md-3"></div>
 	</div>
 	<div class="footer-fixed">
 		<button type="button" class="btn btn-success" disabled>Presentear</button>
@@ -77,7 +81,7 @@
 			$(".footer-fixed button").on('click', function(event) {
 				event.preventDefault();
 				$.ajax({
-					url: '/save',
+					url: '{{ route('save') }}',
 					type: 'POST',
 					dataType: 'json',
 					data: {

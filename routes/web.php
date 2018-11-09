@@ -12,4 +12,4 @@
 */
 
 Route::get('/', 'GiftController@list');
-Route::post('/save', 'GiftController@save');
+Route::post('/save', 'GiftController@save')->name('save');
