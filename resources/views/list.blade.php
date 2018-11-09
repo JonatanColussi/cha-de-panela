@@ -18,6 +18,7 @@
 		.footer-fixed {
 			width: 100%;
 		    text-align: center;
+		    z-index: 9999;
 		    height: 50px;
 		    position: fixed;
 		    bottom: 0;
@@ -80,24 +81,33 @@
 
 			$(".footer-fixed button").on('click', function(event) {
 				event.preventDefault();
-				$.ajax({
-					url: '{{ route('save') }}',
-					type: 'POST',
-					dataType: 'json',
-					data: {
-						gifts: gifts
-					},
-					success: function(response){
-						if (response.success) {
-							alert("Itens gravados com sucesso\n\nNós agradeçemos muito :D");
-							location.reload();
-						}
-					},
-					error: function(response){
-						console.log(response);
-					}
-				});
 
+				msg = "Você selecionou os seguintes presentes:\n\n";
+
+				$('[type=checkbox]:checked').each(function() {
+					msg += $(this).siblings('label').text()+"\n";
+				});
+				msg += "\nConfirma?";
+
+				if (confirm(msg)) {
+					$.ajax({
+						url: '{{ route('save') }}',
+						type: 'POST',
+						dataType: 'json',
+						data: {
+							gifts: gifts
+						},
+						success: function(response){
+							if (response.success) {
+								alert("Itens gravados com sucesso\n\nNós agradeçemos muito :D");
+								location.reload();
+							}
+						},
+						error: function(response){
+							console.log(response);
+						}
+					});
+				}
 			});
 		});
 	</script>
