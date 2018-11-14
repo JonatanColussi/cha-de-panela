@@ -10,7 +10,7 @@ class GiftController extends Controller
     public function list(Gift $gift)
     {
     	$response = [
-    		'gifts' => $gift->all(),
+    		'gifts' => $gift::orderBy('name')->get(),
     	];
 
     	return view('list', $response);
