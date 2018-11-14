@@ -54,7 +54,7 @@
 		<div class="col-md-3"></div>
 	</div>
 	<div class="footer-fixed">
-		<button type="button" class="btn btn-success" disabled>Presentear</button>
+		<button type="button" class="btn btn-success">Presentear</button>
 	</div>
 
 	<!-- Optional JavaScript -->
@@ -70,17 +70,23 @@
 			});
 
 			var gifts = [];
-			$('[type=checkbox]').on('change', function() {
+			/*$('[type=checkbox]').on('change', function() {
 				gifts = [];
 				$('[type=checkbox]:checked').each(function() {
 					gifts.push($(this).val());
 				});
 
 				$(".footer-fixed button").prop('disabled', (gifts.length == 0));
-			});
+			});*/
 
 			$(".footer-fixed button").on('click', function(event) {
 				event.preventDefault();
+				gifts = [];
+				$('[type=checkbox]:checked').each(function() {
+					gifts.push($(this).val());
+				});
+
+				if (gifts.length > 0) {
 
 				msg = "Você selecionou os seguintes presentes:\n\n";
 
@@ -107,6 +113,9 @@
 							console.log(response);
 						}
 					});
+				}
+				} else {
+					alert('Você deve selecionar primeiro o(s) presente(s)!');
 				}
 			});
 		});
