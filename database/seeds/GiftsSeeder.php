@@ -85,6 +85,16 @@ class GiftsSeeder extends Seeder
 			['name' => 'Bomba para chimarrão'],
 			['name' => 'Porta filtro de café'],
 			['name' => 'Bule'],
+			['name' => 'Panela de fundue'],
+			['name' => 'Mixer'],
+			['name' => 'Forma para pão'],
+			['name' => 'Fruteira'],
+			['name' => 'Garfos para sobremesa'],
+			['name' => 'Kit de panelas'],
+			['name' => 'Suporte para bolo'],
+			['name' => 'Tábua de passar roupa'],
+			['name' => 'Taças para sorvete'],
+			['name' => 'Chromecast'],
         ]);
         $this->command->info('Presentes importados com sucesso!');
     }
