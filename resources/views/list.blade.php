@@ -8,7 +8,7 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-	<title>Lista de Presentes - Jonatan & Letícia</title>
+	<title>Lista de Presentes - Lucas & Patrícia</title>
 	<style>
 		body {
 			background-image: url({{ asset('img/wpp.jpg') }});
@@ -70,15 +70,7 @@
 			});
 
 			var gifts = [];
-			/*$('[type=checkbox]').on('change', function() {
-				gifts = [];
-				$('[type=checkbox]:checked').each(function() {
-					gifts.push($(this).val());
-				});
-
-				$(".footer-fixed button").prop('disabled', (gifts.length == 0));
-			});*/
-
+			
 			$(".footer-fixed button").on('click', function(event) {
 				event.preventDefault();
 				gifts = [];
