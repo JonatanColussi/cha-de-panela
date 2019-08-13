@@ -13,6 +13,7 @@
 		body {
 			background-image: url({{ asset('img/wpp.jpg') }});
 			overflow-x: hidden;
+			background-repeat: repeat;
 		}
 
 		.footer-fixed {
@@ -24,7 +25,7 @@
 		    bottom: 0;
 		    background-color: #c7c7c7;
 		    vertical-align: middle;
-		    border-top: 2px solid #fff;
+		    border-top: 2px solid #bbb;
 		}
 
 		.footer-fixed button {
@@ -70,7 +71,7 @@
 			});
 
 			var gifts = [];
-			
+
 			$(".footer-fixed button").on('click', function(event) {
 				event.preventDefault();
 				gifts = [];
